@@ -1,0 +1,30 @@
+<h1>Data Mahasiswa</h1>
+
+<form action="/tambah" method="POST">
+  <input name="nim" placeholder="NIM" required>
+  <input name="nama" placeholder="Nama" required>
+  <input name="jurusan" placeholder="Jurusan" required>
+  <button>Tambah</button>
+</form>
+
+<br>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>NIM</th>
+    <th>Nama</th>
+    <th>Jurusan</th>
+    <th>Aksi</th>
+  </tr>
+  <% for (let m of mahasiswa) { %>
+  <tr>
+    <td><%= m.nim %></td>
+    <td><%= m.nama %></td>
+    <td><%= m.jurusan %></td>
+    <td>
+      <a href="/edit/<%= m.id %>">Edit</a>
+      <a href="/hapus/<%= m.id %>">Hapus</a>
+    </td>
+  </tr>
+  <% } %>
+</table>
